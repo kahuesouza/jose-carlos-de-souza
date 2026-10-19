@@ -224,6 +224,22 @@ section.s{padding:64px 0}
 .fg{grid-template-columns:1fr}
 .fb{flex-direction:column}
 }
+
+/* ===== AJUSTES DO CLIENTE ===== */
+nav .brand b{font-size:20px;letter-spacing:.1em;font-weight:800;line-height:1.15}
+nav .brand span{font-size:11px;letter-spacing:.2em}
+nav .brand svg,#emb svg{width:56px!important;height:56px!important}
+nav .in{height:84px}
+.links a{font-weight:700;color:#0b2e20}
+.links a.btn{color:#1c2b10}
+nav{background:rgba(251,250,246,.86);backdrop-filter:blur(12px)}
+.hero::before,.hero::after{z-index:0}
+.totop{position:fixed;right:28px;bottom:104px;z-index:120;width:56px;height:56px;border-radius:50%;background:var(--g800);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px rgba(15,61,42,.4);border:3px solid var(--gold);opacity:0;transform:translateY(20px) scale(.8);pointer-events:none;transition:.35s}
+.totop.on{opacity:1;transform:none;pointer-events:auto}.totop:hover{background:var(--g700);transform:translateY(-4px)}
+.totop span{position:absolute;right:68px;background:var(--g800);color:#fff;font-weight:800;font-size:13px;letter-spacing:.08em;padding:8px 14px;border-radius:999px;white-space:nowrap;opacity:0;transition:.25s;pointer-events:none}.totop:hover span{opacity:1}
+.backmenu{display:inline-flex;align-items:center;gap:8px;margin-top:30px;font-weight:800;font-size:14px;letter-spacing:.1em;color:var(--g600)}.backmenu:hover{color:var(--gold)}
+@media(max-width:960px){nav .brand b{font-size:16px}nav .brand svg,#emb svg{width:46px!important;height:46px!important}nav .in{height:76px}.totop{bottom:96px;right:18px;width:50px;height:50px}.totop span{display:none}}
+@media(max-width:640px){nav .brand b{font-size:15px;letter-spacing:.06em}nav .brand span{font-size:9px;letter-spacing:.14em}}
 </style>
 </head>
 <body>
@@ -288,6 +304,7 @@ section.s{padding:64px 0}
 <div class="sh rv"><div class="kick">CONTEÚDOS TÉCNICOS</div><h2>Conhecimento sobre perícias e <em>segurança do trabalho</em></h2><p>Artigos informativos para compreender conceitos e procedimentos técnicos. Cada caso exige análise individual. Informações sobre perícias trabalhistas, previdenciárias, normas regulamentadoras e avaliação de condições de trabalho.</p></div>
 <div class="chips" id="chips"></div><div class="ag" id="ag"></div>
 <p class="after" style="margin-top:24px"><span><b>Novo tema técnico:</b> NR 6 e avaliação de EPI — seleção, adequação, uso e documentos de proteção individual.</span></p>
+<a class="backmenu" href="#inicio">↑ VOLTAR AO MENU</a>
 <div class="consider">
 <div class="card"><h3>O que deve ser considerado</h3><p style="color:var(--mut);margin:8px 0">Para avaliar uma situação específica, é necessário conhecer a atividade, os registros existentes e os critérios normativos envolvidos. Informações gerais não substituem exame técnico individual.</p><ul><li>Finalidade e objeto da avaliação técnica.</li><li>Condições reais da atividade ou do ambiente de trabalho.</li><li>Registros, documentos e demais elementos disponíveis.</li><li>Limites de atuação e atribuições profissionais pertinentes.</li></ul></div>
 <div class="card alt2"><h3>Como buscar assistência técnica</h3><p style="color:var(--mut);margin:10px 0 18px">É possível entrar em contato para verificar a pertinência de um atendimento e solicitar informações sobre o escopo da análise.</p><h3 style="font-size:21px">Precisa de orientação técnica sobre o assunto?</h3><p style="color:var(--mut);margin:8px 0 18px">Apresente sua demanda para avaliação inicial de disponibilidade e orçamento.</p><a class="btn" href="#contato">Consultar disponibilidade →</a></div></div>
@@ -319,6 +336,7 @@ section.s{padding:64px 0}
 <div><h5>CONTEÚDO E INFORMAÇÕES</h5><a href="#conteudos">Conteúdos técnicos</a><a href="#glossario">Glossário técnico</a><button data-legal="Privacidade">Privacidade</button><button data-legal="Cookies">Cookies</button><button data-legal="Termos de uso">Termos</button></div>
 </div><div class="fb"><span>© José Carlos de Souza. Todos os direitos reservados.</span><span>Conteúdo institucional e informativo.</span></div></div></footer>
 
+<button class="totop" id="tt" aria-label="Voltar ao topo"><span>VOLTAR AO MENU</span><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 <a class="wf" id="wf" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="36" height="36" viewBox="0 0 32 32" fill="currentColor"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 2.4a10.6 10.6 0 1 1-5.4 19.7l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 0 1 16 5.4zm-4 5.2c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3s1.3 3.5 1.4 3.7c.2.2 2.6 4.1 6.4 5.6 3.2 1.2 3.8 1 4.5.9.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5l-2.3-1.1c-.3-.1-.6-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.3-.7.1-.4-.2-1.5-.6-2.8-1.7-1-.9-1.7-2-1.9-2.4-.2-.3 0-.5.2-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2.1-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.8-.5z"/></svg></a>
 <div class="md" id="md"><div class="mb"><button class="x" aria-label="Fechar">×</button><div id="mc"></div></div></div>
 
@@ -381,10 +399,11 @@ $("#fm").onsubmit=e=>{e.preventDefault();const docs=[...document.querySelectorAl
 // legais
 const L={"Privacidade":"Os dados enviados pelos canais de contato são utilizados para retorno à solicitação e avaliação inicial da demanda. Evite enviar dados sensíveis antes de confirmar o canal apropriado.","Cookies":"O site pode usar recursos técnicos necessários à navegação. Consulte as configurações do navegador para gerenciar armazenamento local e preferências.","Termos de uso":"O conteúdo deste site tem caráter informativo e não substitui análise técnica individual. A contratação depende de avaliação de escopo e das atribuições profissionais."};
 document.querySelectorAll("[data-legal]").forEach(b=>b.onclick=()=>open(`<h3>${b.dataset.legal}</h3><p class="d">${L[b.dataset.legal]}</p><p class="d" style="font-size:15px">Para dúvidas sobre atendimento e informações disponibilizadas neste site, utilize os canais indicados na página de contato.</p><a class="btn" href="#contato" onclick="document.querySelector('.x').click()">Entrar em contato →</a>`));
+$("#tt").onclick=()=>scrollTo({top:0,behavior:"smooth"});
 // menu, scroll, reveal, contadores
 $("#bg").onclick=()=>document.body.classList.toggle("menu-open");document.querySelectorAll(".links a").forEach(a=>a.onclick=()=>document.body.classList.remove("menu-open"));
 const nav=$("#nav"),bar=$("#bar"),secs=[...document.querySelectorAll("section[id]")],lk=[...document.querySelectorAll(".links a:not(.btn)")];
-addEventListener("scroll",()=>{const y=scrollY;nav.classList.toggle("sc",y>40);bar.style.width=(y/(document.documentElement.scrollHeight-innerHeight)*100)+"%";let cur="";secs.forEach(s=>{if(s.offsetTop-120<=y)cur=s.id});lk.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+cur))},{passive:true});
+addEventListener("scroll",()=>{const y=scrollY;nav.classList.toggle("sc",y>40);$("#tt").classList.toggle("on",y>500);bar.style.width=(y/(document.documentElement.scrollHeight-innerHeight)*100)+"%";let cur="";secs.forEach(s=>{if(s.offsetTop-120<=y)cur=s.id});lk.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+cur))},{passive:true});
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll(".rv").forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+"ms";io.observe(el)});
 const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const n=+e.target.dataset.n,p=e.target.dataset.p||"";let t0;const f=t=>{t0=t0||t;const k=Math.min((t-t0)/1400,1);e.target.textContent=p+Math.round(n*(1-Math.pow(1-k,3)));k<1&&requestAnimationFrame(f)};requestAnimationFrame(f)}),{threshold:.6});
