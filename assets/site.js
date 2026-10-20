@@ -10,10 +10,10 @@ const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},se
 window.dataLayer=window.dataLayer||[];
 /* ---------- tema ---------- */
 const root=document.documentElement,tm=$('meta[name=theme-color]');
-const applyTheme=t=>{root.setAttribute("data-theme",t);if(tm)tm.content=t==="dark"?"#07140d":"#fbfaf6";const b=$("#theme");if(b){b.setAttribute("aria-pressed",t==="dark");b.setAttribute("aria-label",t==="dark"?"Mudar para versão clara":"Mudar para versão escura")}};
+const applyTheme=t=>{root.setAttribute("data-theme",t);if(tm)tm.content=t==="dark"?"#07140d":"#fbfaf6";$$("[data-set]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.set===t));const b=$("#theme");if(b){b.setAttribute("aria-pressed",t==="dark");b.setAttribute("aria-label",t==="dark"?"Mudar para versão clara":"Mudar para versão escura")}};
 applyTheme(root.getAttribute("data-theme")||"light");
 $("#theme").addEventListener("click",()=>{const n=root.getAttribute("data-theme")==="dark"?"light":"dark";applyTheme(n);store.set("jcs-theme",n)});
-matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",e=>{if(!store.get("jcs-theme"))applyTheme(e.matches?"dark":"light")});
+$$("[data-set]").forEach(b=>b.addEventListener("click",()=>{applyTheme(b.dataset.set);store.set("jcs-theme",b.dataset.set)}));
 /* ---------- rastreamento (só carrega com consentimento e IDs preenchidos) ---------- */
 const hasTrack=!!(CFG.GTM||CFG.GADS);let trackOn=false;
 function loadTrack(){if(trackOn)return;trackOn=true;
@@ -59,9 +59,9 @@ $$(".svc").forEach(b=>b.addEventListener("click",()=>{const s=SV.items[b.dataset
 $$(".svc").forEach(c=>{c.addEventListener("mousemove",e=>{if(matchMedia("(hover:none)").matches)return;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(800px) rotateX(${-y*6}deg) rotateY(${x*6}deg) translateY(-6px)`});c.addEventListener("mouseleave",()=>c.style.transform="")});
 /* ---------- abas, artigos, glossário ---------- */
 $$(".tab").forEach(t=>t.onclick=()=>{$$(".tab").forEach(x=>x.setAttribute("aria-selected",x===t));$$(".stp").forEach((s,i)=>s.classList.toggle("on",i==t.dataset.t))});
-$$(".art").forEach(a=>{const tg=()=>{const o=a.classList.toggle("open");a.querySelector(".arrow").textContent=o?"FECHAR −":"LER ARTIGO +";a.querySelector(".arrow").setAttribute("aria-expanded",o)};a.addEventListener("click",tg)});
+$$(".art").forEach(a=>{const tg=()=>{const o=a.classList.toggle("open");a.querySelector(".arrow").textContent=o?"FECHAR −":"LER ARTIGO +";a.querySelector(".arrow").setAttribute("aria-expanded",o)};a.addEventListener("click",e=>{if(e.target.closest("a"))return;tg()})});
 $$(".chip").forEach(c=>c.onclick=()=>{$$(".chip").forEach(x=>x.setAttribute("aria-pressed",x===c));const k=c.dataset.c;$$(".art").forEach(a=>a.style.display=k==="all"||a.dataset.c.split(" ").includes(k)?"":"none")});
-$("#q").oninput=e=>{const v=e.target.value.toLowerCase();let n=0;$$(".gl").forEach(c=>{const m=c.textContent.toLowerCase().includes(v);c.style.display=m?"":"none";n+=m});$("#none").style.display=n?"none":"block"};
+$("#q").oninput=e=>{const v=e.target.value.toLowerCase();let n=0;$$(".gl").forEach(c=>{const m=c.textContent.toLowerCase().includes(v);c.style.display=m?"":"none";c.open=!!v&&m;n+=m});$("#none").style.display=n?"none":"block"};
 /* ---------- formulário → WhatsApp ---------- */
 $("#fm").onsubmit=e=>{e.preventDefault();const docs=$$("#docs input:checked").map(i=>i.value).join(", ")||"não informado";
  track("form_submit",{area:$("#fa").value});
