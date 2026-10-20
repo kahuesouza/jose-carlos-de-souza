@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kahuesouza.github.io/jose-carlos-de-souza/sitemap.xml
